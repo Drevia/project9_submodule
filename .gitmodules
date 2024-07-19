@@ -1,0 +1,15 @@
+[submodule "medilabo"]
+	path = medilabo
+	url = https://github.com/Drevia/medilabo.git
+[submodule "medilabofront"]
+	path = medilabofront
+	url = https://github.com/Drevia/medilabofront.git
+[submodule "medilaboResult"]
+	path = medilaboResult
+	url = https://github.com/Drevia/medilaboResult.git
+[submodule "medilaboNote"]
+	path = medilaboNote
+	url = https://github.com/Drevia/medilaboNote.git
+[submodule "medilaboGateway"]
+	path = medilaboGateway
+	url = https://github.com/Drevia/medilaboGateway.git
