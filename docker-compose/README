@@ -1,0 +1,4 @@
+Information:
+In mysql-initdb folder, you can find a sql script for medilabo service. You can run the script after initializing the
+database
+You can also find the docker-compose file the stack
