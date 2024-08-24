@@ -2,3 +2,18 @@ Information:
 In mysql-initdb folder, you can find a sql script for medilabo service. You can run the script after initializing the
 database
 You can also find the docker-compose file the stack
+
+Green-Code:
+Pour ce projet il a été demandé d'étudier les pistes de greencode, voici celles trouvés pour le moment:
+
+Pour MedilaboResult:
+    - Optimiser l'algo de calcul de risques
+    - Utiliser un système de cache pour éviter de recalculer des patients dont on connait déjà le risque
+    - Precalculer le resultat
+
+Pour le front:
+    - Récupérer directement le fichier bootstrap au lieu d'aller le télécharger a chaque page du front
+
+Global:
+    - Limiter les appels entre service si possible
+    - Optimiser le code de chaque application

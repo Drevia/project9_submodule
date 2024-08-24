@@ -3,7 +3,7 @@ version: '3.8'
 services:
   mysql:
     image: mysql:8.0
-    container_name: mysql_container
+    container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: rootroot
       MYSQL_USER: user
@@ -14,12 +14,6 @@ services:
       - mysql_data:/var/lib/mysql
     ports:
       - "3306:3306"
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8085:8085
 
   mongodb:
     image: mongo:latest
@@ -34,15 +28,42 @@ services:
     ports:
       - "27017:27017"
 
-  mongo-express:
-    image: mongo-express
-    restart: always
+  medilabo:
+    build:
+      context: ../medilabo
+      dockerfile: docker/Dockerfile
     ports:
-      - 8081:8081
-    environment:
-      ME_CONFIG_MONGODB_URL: mongodb://root:password@mongo:27017/
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+      - "8091:8080"
+    depends_on:
+      - mysql
+
+  medilabo_front:
+    build:
+      context: ../medilabofront
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8092:8080"
+
+  medilabo_gateway:
+    build:
+      context: ../medilaboGateway
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8090:8080"
+
+  medilabo_note:
+    build:
+      context: ../medilaboNote
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8093:8080"
+
+  medilabo_result:
+    build:
+      context: ../medilaboResult
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8094:8080"
 
 volumes:
   mongoExpress:
